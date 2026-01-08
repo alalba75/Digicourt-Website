@@ -104,6 +104,35 @@
       </div>
     </div>
   </footer>
+<script>
+(function () {
+  function normalise(path) {
+    if (!path) return "/index";
+    path = path.split("?")[0].split("#")[0];
+    if (path.length > 1 && path.endsWith("/")) path = path.slice(0, -1);
+    if (path === "/") return "/index";
+    if (path.endsWith(".html")) path = path.slice(0, -5);
+    return path;
+  }
+
+  const current = normalise(window.location.pathname);
+
+  document.querySelectorAll(".nav a").forEach(a => {
+    const href = a.getAttribute("href") || "";
+    let target = href;
+    if (href.startsWith("http")) {
+      try { target = new URL(href).pathname; } catch(e) {}
+    }
+    target = normalise(target);
+
+    if (target === current) {
+      a.classList.add("active");
+    } else {
+      a.classList.remove("active");
+    }
+  });
+})();
+</script>
 
 </body>
 </html>
