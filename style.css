@@ -257,3 +257,18 @@ h1{
   display: block;
   filter: drop-shadow(0 6px 12px rgba(0,0,0,.35));
 }
+input, select, textarea{
+  width:100%;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(37,48,74,.75);
+  background: rgba(11,13,18,.55);
+  color: var(--text);
+  outline: none;
+}
+input:focus, select:focus, textarea:focus{
+  border-color: rgba(225,29,46,.55);
+  box-shadow: 0 0 0 3px rgba(225,29,46,.12);
+}
+textarea{resize:vertical}
+label{color: rgba(233,238,252,.95)}
